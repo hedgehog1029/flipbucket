@@ -1,6 +1,11 @@
 var http = require("http"),
     query = require("mcquery"),
-    url = require("url");
+    url = require("url"),
+    color = require("color");
+
+var log = function(msg) {
+    console.log("flipbucket > ".blue + msg);
+}
 
 var server = http.createServer(function(req, res) {
     var j = JSON.parse(JSON.stringify(url.parse(req.url, true)));
@@ -8,7 +13,7 @@ var server = http.createServer(function(req, res) {
         var q = query.Query(j.query.host, j.query.port);
         q.doHandshake();
         q.basic_stat(function(err, statinfo) {
-            console.log(statinfo);
+            log(statinfo);
         }
     }}
 });
