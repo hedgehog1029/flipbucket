@@ -12,7 +12,10 @@ var server = http.createServer(function(req, res) {
     if (j.pathname == "/query") { if (j.query.host) {
         log("host: " + j.query.host + ", port: " + j.query.port);
 
-        var q = new Query(j.query.host, j.query.port);
+        var HOST = j.query.host || 'localhost';
+        var PORT = j.query.port || 25565;
+
+        var q = new Query(HOST, PORT, {timeout: 100000});
 
         q.connect(function(err) {
             if (err) log(err);
