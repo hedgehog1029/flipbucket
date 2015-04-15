@@ -11,7 +11,6 @@ var server = http.createServer(function(req, res) {
     var j = JSON.parse(JSON.stringify(url.parse(req.url, true)));
     if (j.pathname == "/query") { if (j.query.host) {
         log("host: " + j.query.host + ", port: " + j.query.port);
-        log("host: " + j.query.host + ", port: " + j.query.port);
 
         var q = new Query(j.query.host, j.query.port);
 
