@@ -1,7 +1,7 @@
 var http = require("http"),
     query = require("mcquery"),
     url = require("url"),
-    color = require("color");
+    color = require("colors");
 
 var log = function(msg) {
     console.log("flipbucket > ".blue + msg);
