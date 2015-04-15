@@ -14,7 +14,7 @@ var server = http.createServer(function(req, res) {
         q.doHandshake();
         q.basic_stat(function(err, statinfo) {
             log(statinfo);
-        }
+        });
     }}
 });
 server.listen(1337);
