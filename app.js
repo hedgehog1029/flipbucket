@@ -9,7 +9,7 @@ var log = function(msg) {
 
 var server = http.createServer(function(req, res) {
     var j = JSON.parse(JSON.stringify(url.parse(req.url, true)));
-    if (j.pathname == "/query") { if (j.query.host) {
+    if (j.pathname == "/query" && j.query.host) {
         log("host: " + j.query.host + ", port: " + j.query.port);
 
         var HOST = j.query.host || 'localhost';
@@ -24,6 +24,6 @@ var server = http.createServer(function(req, res) {
                 log(statinfo);
             });
         });
-    }}
+    }
 });
 server.listen(1337);
